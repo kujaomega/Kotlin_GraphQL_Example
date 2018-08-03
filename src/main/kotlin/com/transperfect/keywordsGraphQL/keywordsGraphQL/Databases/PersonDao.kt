@@ -2,6 +2,7 @@ package com.transperfect.keywordsGraphQL.keywordsGraphQL.Databases
 
 import com.transperfect.keywordsGraphQL.keywordsGraphQL.model.Person
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
 class PersonDao {
@@ -13,4 +14,10 @@ class PersonDao {
     )
 
     fun getPersonById(id: String) = data.firstOrNull { person -> person.id == id }
+
+    fun createPerson(name: String): Person {
+        val person = Person(id = UUID.randomUUID().toString(), name = name)
+        data.add(person)
+        return person
+    }
 }

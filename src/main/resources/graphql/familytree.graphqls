@@ -18,3 +18,7 @@ type Relationship {
 extend type Query {
     getPersonById(id: ID!) : Person
 }
+
+type Mutation {
+        createPerson(name: String!) : Person!
+    }
